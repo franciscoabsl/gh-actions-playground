@@ -16,6 +16,18 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
+      - name: Echo GitHub Variables
+        run: |
+          echo "GitHub Actor: ${{ github.actor }}"
+          echo "GitHub Repository: ${{ github.repository }}"
+          echo "GitHub Run ID: ${{ github.run_id }}"
+          echo "GitHub SHA: ${{ github.sha }}"
+          echo "GitHub Ref: ${{ github.ref }}"
+          echo "GitHub Workspace: ${{ github.workspace }}"
+          echo "GitHub Event Name: ${{ github.event_name }}"
+          echo "GitHub Event Path: ${{ github.event_path }}"
+          echo "GitHub Action: ${{ github.action }}"
+          echo "GitHub Job: ${{ github.job }}"
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
@@ -51,6 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
+        # USERNAME WILL NOT BE AVAILABLE SINCE IS ON TEST STEP SCOPE
         run: |
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
           echo "MONGODB_DB_NAME: ${{ env.MONGODB_DB_NAME }}"
