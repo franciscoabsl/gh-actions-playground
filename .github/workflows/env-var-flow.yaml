@@ -47,12 +47,12 @@ jobs:
   #     - name: Build website
   #       run: npm run build
   deploy:
-    # needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Output information
         run: |
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
-          echo "MONGODB_CLUSTER_ADDRESS: ${{ env.MONGODB_CLUSTER_ADDRESS }}"
+          echo "MONGODB_DB_NAME: ${{ env.MONGODB_DB_NAME }}"
       - name: Deploy
         run: echo "Deploying..."
