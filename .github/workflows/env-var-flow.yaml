@@ -28,13 +28,13 @@ jobs:
           echo "GitHub Event Path: ${{ github.event_path }}"
           echo "GitHub Action: ${{ github.action }}"
           echo "GitHub Job: ${{ github.job }}"
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        run: npm ci
+      # - name: Cache dependencies
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ~/.npm
+      #     key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+      # - name: Install dependencies
+      #   run: npm ci
       # - name: Run server
       #   run: npm start & npx wait-on http://127.0.0.1:$PORT
       # - name: Test code
